@@ -1,0 +1,17 @@
+/* Styling for empty nodes on the grid. Creates a blank square. */
+.node {
+  width: 25px;
+  height: 25px;
+  outline: 1px solid grey;
+  display: inline-block;
+}
+
+/* Styling for the node that the algorithm is searching for. */
+.node-finish {
+  background-color: red;
+}
+
+/* Styling for node that the algorithm starts at. */
+.node-start {
+  background-color: green;
+}
