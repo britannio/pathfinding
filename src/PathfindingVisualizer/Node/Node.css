@@ -15,3 +15,15 @@
 .node-start {
   background-color: green;
 }
+
+/* Styling for node that the algorithm starts at. 
+Controlled by document.getElementById(<elememt_id>).className = node-visited
+*/
+.node-visited {
+  background-color: blue;
+}
+
+/* Styling for a node acting as an impassable wall */
+.node-wall {
+  background-color: rgb(12, 53, 71);
+}
