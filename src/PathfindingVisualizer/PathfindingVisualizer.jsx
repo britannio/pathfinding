@@ -26,19 +26,20 @@ export default class PathfindingVisualizer extends Component {
     this.setState({ grid });
   }
 
-  // Starts dijjkstra process and starts the animation
+  // Starts dijkstra process and starts the animation
   visualizeDijkstra() {
     const { grid } = this.state;
     const startNode = grid[START_NODE_ROW][START_NODE_COL];
     const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
     const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
-    this.animateDijkstra(visitedNodesInOrder);
+    const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
+    this.animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
     console.log(visitedNodesInOrder);
   }
 
   // Incrementally shows a larger and larger portion of the visited 
   animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder) {
-    for (let i = 0; i < visitedNodesInOrder.length; i++) {
+    for (let i = 0; i <= visitedNodesInOrder.length; i++) {
       if (i === visitedNodesInOrder.length) {
         setTimeout(() => {
           this.animateShortestPath(nodesInShortestPathOrder);
@@ -53,6 +54,7 @@ export default class PathfindingVisualizer extends Component {
     }
   }
 
+  // Animation for the tiles forming the shortest path
   animateShortestPath(nodesInShortestPathOrder) {
     for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
       setTimeout(() => {
