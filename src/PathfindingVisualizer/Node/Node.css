@@ -2,25 +2,56 @@
 .node {
   width: 25px;
   height: 25px;
-  outline: 1px solid grey;
+  outline: 1px solid rgb(175, 216, 248);
   display: inline-block;
 }
 
 /* Styling for the node that the algorithm is searching for. */
 .node-finish {
-  background-color: red;
+  background-color: #f26968;
 }
 
 /* Styling for node that the algorithm starts at. */
 .node-start {
-  background-color: green;
+  background-color: #6cbf84;
 }
 
 /* Styling for node that the algorithm starts at. 
 Controlled by document.getElementById(<elememt_id>).className = node-visited
 */
 .node-visited {
-  background-color: blue;
+  animation-name: visitedAnimation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+/* Animation for the .node-visited property */
+@keyframes visitedAnimation {
+  0% {
+    transform: scale(0.3);
+    background-color: #4bbcf4;
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: #61c0bf
+  }
+
+  75% {
+    /* Scale 1.2 oversizes the tile for extra effect   */
+    transform: scale(1.2);
+    background-color: #7bd4cc
+  }
+
+  100% {
+    transform: scale(1);
+    background-color: rgba(0, 190, 218, 0.75);
+  }
 }
 
 /* Styling for a node acting as an impassable wall */

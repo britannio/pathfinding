@@ -14,6 +14,8 @@ export function dijkstra(grid, startNode, finishNode) {
         sortNodesByDistance(unvisitedNodes);
         // .shift() removes and returns the first item in an array
         const closestNode = unvisitedNodes.shift();
+        // if the closest node is a wall then jump to the next iteration
+        // as .shift() has removed the wall from the unvisitedNodes array
         if (closestNode.isWall) continue;
         console.log(closestNode);
 
